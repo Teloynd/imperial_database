@@ -1,0 +1,104 @@
+/* starwars/static/starwars/style.css */
+
+:root {
+    --imperial-blue: #007bff; /* Яркий акцент для ссылок и заголовков */
+    --imperial-dark: #1a1a2e; /* Основной фон (почти черный) */
+    --imperial-gray: #303952; /* Фон контейнеров */
+    --imperial-text: #e0e0e0; /* Светлый текст */
+    --imperial-accent: #f9ca24; /* Золотистый акцент */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--imperial-dark);
+    color: var(--imperial-text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    width: 95%;
+    margin: 40px auto;
+    background: var(--imperial-gray);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px var(--imperial-blue);
+    border: 1px solid var(--imperial-blue);
+}
+
+h1, h2, h3 {
+    color: var(--imperial-accent);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid var(--imperial-blue);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Ссылки */
+a {
+    color: var(--imperial-blue);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--imperial-accent);
+    text-decoration: underline;
+}
+
+/* Стили для списков персонажей */
+.character-list {
+    list-style: none;
+    padding: 0;
+}
+
+.character-list li {
+    background: #3c445c;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-left: 5px solid var(--imperial-blue);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.character-list li:hover {
+    background-color: #4a546d;
+}
+
+/* Детальные страницы (Персонаж/Корабль) */
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.detail-table th, .detail-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #4a546d;
+}
+
+.detail-table th {
+    background-color: #3c445c;
+    width: 30%;
+    color: var(--imperial-accent);
+}
+
+.detail-table tr:nth-child(even) {
+    background-color: #353d52;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 8px 15px;
+    border: 1px solid var(--imperial-blue);
+    border-radius: 5px;
+    background-color: var(--imperial-dark);
+}

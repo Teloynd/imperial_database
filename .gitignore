@@ -1,0 +1,14 @@
+
+.DS_Store
+.vscode/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyd
+*.$py.class
+db.sqlite3
+/media
+*.log
+*.pot
+*.mo

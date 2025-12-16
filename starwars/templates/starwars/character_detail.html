@@ -1,0 +1,47 @@
+{% extends "starwars/base.html" %}
+{% load static %}
+
+{% block title %}Персонаж: {{ character.name }}{% endblock %}
+{% block header %}Персонаж: {{ character.name }}{% endblock %}
+
+{% block content %}
+    <h2>Характеристики</h2>
+    <table class="detail-table">
+        <tr>
+            <th>Рост</th>
+            <td>{{ character.height|default:"Н/Д" }} см</td>
+        </tr>
+        <tr>
+            <th>Масса</th>
+            <td>{{ character.mass|default:"Н/Д" }} кг</td>
+        </tr>
+        <tr>
+            <th>Цвет волос</th>
+            <td>{{ character.hair_color|default:"Н/Д" }}</td>
+        </tr>
+        <tr>
+            <th>Цвет кожи</th>
+            <td>{{ character.skin_color|default:"Н/Д" }}</td>
+        </tr>
+        <tr>
+            <th>Пол</th>
+            <td>{{ character.gender|default:"Н/Д" }}</td>
+        </tr>
+        <tr>
+            <th>Год рождения</th>
+            <td>{{ character.birth_year|default:"Н/Д" }}</td>
+        </tr>
+    </table>
+
+    <h3>Собственный Корабль</h3>
+    {% if character.starship %}
+        <p>Название: <strong>{{ character.starship.name }}</strong></p>
+        <a class="back-link" href="{% url 'starwars:starship_detail' pk=character.starship.pk %}">
+            Просмотреть подробные данные о корабле →
+        </a>
+    {% else %}
+        <p>У данного персонажа нет назначенного корабля в базе данных.</p>
+    {% endif %}
+
+    <a class="back-link" href="{% url 'starwars:all_characters' %}">← Вернуться к списку персонажей</a>
+{% endblock %}

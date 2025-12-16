@@ -1,0 +1,21 @@
+{% extends "starwars/base.html" %}
+{% load static %}
+
+{% block title %}Все Персонажи{% endblock %}
+{% block header %}База Данных: Список Персонажей{% endblock %}
+
+{% block content %}
+    <h2>Список Персонажей ({{ characters|length }} ед.)</h2>
+    <ul class="character-list">
+        {% for character in characters %}
+            <li>
+                <a href="{% url 'starwars:character_detail' pk=character.pk %}">
+                    {{ character.name }}
+                </a>
+                ({% if character.gender %}{{ character.gender }}{% else %}н/д{% endif %})
+            </li>
+        {% empty %}
+            <li>База данных персонажей пуста.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
