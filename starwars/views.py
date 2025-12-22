@@ -2,9 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Character, Starship
 
 def all_characters_view(request):
-    """
-    Отображает список всех персонажей.
-    """
     characters = Character.objects.all()
     context = {
         'characters': characters,
@@ -13,11 +10,7 @@ def all_characters_view(request):
     return render(request, 'starwars/all_characters.html', context)
 
 
-def character_detail_view(request, pk):
-    """
-    Отображает информацию о конкретном персонаже по его ID (pk).
-    """
-    
+def character_detail_view(request, pk):    
     character = get_object_or_404(Character, pk=pk)
     context = {
         'character': character,
@@ -27,9 +20,6 @@ def character_detail_view(request, pk):
 
 
 def starship_detail_view(request, pk):
-    """
-    Отображает информацию о конкретном корабле по его ID (pk).
-    """
     starship = get_object_or_404(Starship, pk=pk)
     context = {
         'starship': starship,

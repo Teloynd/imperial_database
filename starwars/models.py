@@ -9,12 +9,8 @@ class Starship(models.Model):
     passengers = models.IntegerField(verbose_name="Пассажиры")
     hyperdrive_rating = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Рейтинг гипердрайва")
 
-    class Meta:
-        verbose_name = "Корабль"
-        verbose_name_plural = "Корабли"
 
-    def __str__(self):
-        return self.name
+
 
 
 class Character(models.Model):
@@ -32,13 +28,6 @@ class Character(models.Model):
     starship = models.ForeignKey(
         Starship,
         on_delete=models.CASCADE,
+        null=True,
         verbose_name="Собственный Корабль",
     )
-
-    class Meta:
-        verbose_name = "Персонаж"
-        verbose_name_plural = "Персонажи"
-        ordering = ['name']
-
-    def __str__(self):
-        return self.name
